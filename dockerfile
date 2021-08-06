@@ -1,8 +1,9 @@
-FROM python:3.8-slim-buster
-RUN pip install poetry
+FROM ubuntu:latest
 
-WORKDIR /app
-COPY ./ /app
-RUN poetry install
-ENTRYPOINT ["poetry","run"]
-CMD ["gunicorn","-b","0.0.0.0:5000", "server:app"]
+RUN apt-get update
+RUN apt-get install httpd
+RUN apt-get install htop
+WORKDIR /var/www/html
+COPY .index.html/ /var/www/html/
+ENTRYPOINT ["httpd","htop"]
+CMD ["-D","FOREGROUND"]
