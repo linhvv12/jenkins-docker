@@ -3,7 +3,7 @@ pipeline {
   agent none
 
   environment {
-    DOCKER_IMAGE = "linhvv/jenkins-docker"
+    DOCKER_IMAGE = "linhvv2/jenkins-docker"
   }
 
   stages {
